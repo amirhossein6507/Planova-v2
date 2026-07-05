@@ -1,36 +1,132 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Planova V2
 
-## Getting Started
+Planova is a modern goal and planning web application designed to help users organize their daily goals, long-term goals, and personal challenges in a simple and structured way.
 
-First, run the development server:
+The project focuses on transforming goals into actionable steps while providing a clean and intuitive user experience.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+## ✨ Features
+
+### Daily Goals
+
+- Create daily goals
+- Edit and delete goals
+- Organize goals by date
+- Add descriptions
+- Assign categories
+- Add multiple steps to each goal
+- Mark steps as completed
+- Schedule goals with start and end times
+- Search goals by title
+- Filter goals by one or multiple categories
+
+---
+
+### Long-Term Goals
+
+- Create long-term goals
+- Edit and delete goals
+- Set start and end dates
+- Add descriptions
+- Assign categories
+- Define multiple steps
+- Mark steps as completed
+- Set goal priority
+- Display countdown until the deadline
+- Search goals by title
+- Filter goals by one or multiple categories
+
+---
+
+### Challenges
+
+- Create personal challenges
+- Set challenge duration
+- Choose a start date
+- Automatically generate challenge days
+- Configure rest days
+- Edit challenge tasks during the challenge
+
+---
+
+### Categories
+
+- Create personal categories
+- Organize goals using categories
+
+---
+
+### Archive
+
+- Archive completed or inactive goals
+- Browse archived items
+
+---
+
+### Calendar
+
+- View goals on a calendar
+
+---
+
+### Authentication
+
+- Sign in with Google
+- Secure user authentication
+
+---
+
+### Progressive Web App (PWA)
+
+- Install the application on desktop or mobile
+- Responsive experience across devices
+
+---
+
+## 🛠️ Tech Stack
+
+- Next.js
+- TypeScript
+- Supabase
+- PostgreSQL
+- TanStack Query
+- Tailwind CSS
+- Progressive Web App (PWA)
+
+---
+
+## 📂 Project Structure
+
+```text
+/
+├── daily
+├── long-term
+│   └── [id]
+├── challenges
+├── calendar
+├── archive
+├── settings
+├── information
+└── auth
+    └── login
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## 🎯 Project Goal
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Planova aims to provide a focused planning experience by helping users:
 
-## Learn More
+- Organize daily activities
+- Break long-term goals into manageable steps
+- Build consistency through personal challenges
+- Track progress in a structured environment
 
-To learn more about Next.js, take a look at the following resources:
+The application emphasizes simplicity, clarity, and productivity without overwhelming the user with unnecessary complexity.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📄 License
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project is released under the MIT License.
