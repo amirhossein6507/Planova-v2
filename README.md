@@ -96,24 +96,6 @@ The project focuses on transforming goals into actionable steps while providing 
 
 ---
 
-## 📂 Project Structure
-
-```text
-/
-├── daily
-├── long-term
-│   └── [id]
-├── challenges
-├── calendar
-├── archive
-├── settings
-├── information
-└── auth
-    └── login
-```
-
----
-
 ## 🎯 Project Goal
 
 Planova aims to provide a focused planning experience by helping users:

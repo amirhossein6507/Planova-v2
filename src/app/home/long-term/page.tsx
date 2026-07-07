@@ -1,5 +1,5 @@
 function Page() {
-  return <div>daily</div>;
+  return <div>long term</div>;
 }
 
 export default Page;

@@ -1,5 +1,5 @@
 function Page() {
-  return <div>long-terms</div>;
+  return <div>archive</div>;
 }
 
 export default Page;

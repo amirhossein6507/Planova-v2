@@ -1,0 +1,14 @@
+@keyframes shadow-box {
+  0% {
+    box-shadow: 0 0 15px 0 var(--color-turquoise);
+  }
+  50% {
+    box-shadow: 0 0 15px 0 var(--color-sky-300);
+  }
+  100% {
+    box-shadow: 0 0 15px 0 var(--color-teal-200);
+  }
+}
+.ani-shadow-box {
+  animation: shadow-box 2s linear infinite alternate;
+}
