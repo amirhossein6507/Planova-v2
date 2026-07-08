@@ -1,5 +1,11 @@
+@import "@heroui/styles";
 @import "tailwindcss";
 @import "../_style/animation.css";
+
+@font-face {
+  font-family: "iran-sans";
+  src: url("../../public/IRANSansXV.ttf");
+}
 
 :root {
   --color-black-900: #292d3a;
@@ -7,6 +13,7 @@
   --color-turquoise: #45c8d9;
   --color-green: #00e0af;
   --color-white-900: #f7f8f9;
+  --font-iran-sans: "iran-sans";
 }
 
 @theme {
@@ -14,10 +21,19 @@
   --color-black-900: var(--color-black-900);
   --color-black-950: var(--color-black-950);
   --color-white: var(--color-white-900);
+  --font-outfit: var(--font-outfit);
+  --font-iran-sans: .iran-sans;
 }
 
 * {
   transition: all 0.4s;
+}
+
+.rtl {
+  direction: rtl;
+}
+.ltr {
+  direction: ltr;
 }
 
 /* @media (prefers-color-scheme: dark) {
@@ -31,8 +47,28 @@
   width: 5px;
 }
 ::-webkit-scrollbar-thumb {
-  background-color: var(--color-turquoise);
+  background-color: #45c8d9cb;
+  border-radius: 50px;
 }
 ::-webkit-scrollbar-track {
   background-color: rgba(255, 0, 0, 0);
+}
+
+input:checked {
+  accent-color: red !important;
+}
+
+.text-expand {
+  overflow: auto;
+  text-wrap: wrap;
+}
+
+.text-collaps {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-wrap: nowrap;
+}
+
+.iran-sans {
+  font-family: "iran-sans", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }

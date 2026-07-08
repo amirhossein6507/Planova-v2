@@ -1,17 +1,12 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Archivo_Black, Geist, Geist_Mono, Outfit } from "next/font/google";
 import { ReactNode } from "react";
 import "@/src/app/globals.css";
 import Navbar from "../_ui/Navbar";
 import MainContainer from "../_ui/MainContainer";
 import Header from "../_ui/Header";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const outfit = Outfit({
+  variable: "--font-outfit",
   subsets: ["latin"],
 });
 
@@ -26,10 +21,7 @@ export default function RootLayout({
   children: Readonly<ReactNode>;
 }) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
+    <html lang="en" className={`${outfit.className} dark h-full antialiased`}>
       <body className="bg-black-950 relative flex h-dvh grow flex-col items-center justify-center gap-5 px-2 py-2 md:flex-row md:px-5 md:py-10">
         <MainContainer>
           <Header />

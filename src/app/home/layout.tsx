@@ -6,7 +6,7 @@ function Layout({ children }: { children: ReactNode }) {
   return (
     <div className="relative">
       <NavbarHome />
-      <div className="p-3 text-justify">{children}</div>
+      <div className="p-3">{children}</div>
     </div>
   );
 }

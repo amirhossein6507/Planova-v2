@@ -45,7 +45,7 @@ function Navbar() {
   const pathname = usePathname();
 
   return (
-    <nav className="bg-black-900 absolute bottom-11 flex w-10/12 flex-row items-center gap-2 overflow-hidden rounded-3xl p-1 shadow-[0_0_5px_-1px_var(--color-turquoise)] md:relative md:bottom-0 md:h-full md:w-fit md:flex-col md:justify-center md:gap-5 md:rounded-2xl md:px-1 md:shadow-[0_0_10px_var(--color-turquoise)]">
+    <nav className="bg-black-900/50 md:bg-black-900 absolute bottom-11 flex w-10/12 flex-row items-center gap-2 overflow-hidden rounded-3xl p-1 shadow-[0_0_5px_-1px_var(--color-turquoise)] backdrop-blur-2xl md:relative md:bottom-0 md:h-full md:w-fit md:flex-col md:justify-center md:gap-5 md:rounded-2xl md:px-1 md:shadow-[0_0_10px_var(--color-turquoise)]">
       {NAV_ITEM.map((item) => {
         const activeLink = pathname.startsWith(item.link);
         return (

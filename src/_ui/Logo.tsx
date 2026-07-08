@@ -1,11 +1,19 @@
 import Image from "next/image";
 import LogoPlanova from "@/public/logo-png.png";
+import Link from "next/link";
 
 function Logo() {
   return (
-    <div>
-      <Image src={LogoPlanova} alt="planova-logo" height={50} />
-    </div>
+    <Link href="/information" className="block">
+      <Image
+        loading="eager"
+        placeholder="blur"
+        aria-label="logo-planova"
+        src={LogoPlanova}
+        alt="planova-logo"
+        height={50}
+      />
+    </Link>
   );
 }
 
