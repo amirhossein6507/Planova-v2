@@ -111,6 +111,17 @@ export const editDailyGoal = async (id: number, formData: FormData) => {
   revalidatePath("/home/daily");
 };
 
+export const archivingDailyGoal = async (id: number) => {
+  const { error } = await supabase
+    .from("daily")
+    .update({ status: "archive" })
+    .eq("id", id);
+
+  if (error) throw new Error(error?.message);
+
+  revalidatePath("/home/daily");
+};
+
 export const deleteDailyGoal = async (id: number) => {
   const { error: errorSteps } = await supabase
     .from("daily_steps")

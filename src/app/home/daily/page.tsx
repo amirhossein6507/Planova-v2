@@ -25,15 +25,17 @@ async function Page() {
       <HeaderDailyGoals />
 
       {dailyGoals.length !== 0 ? (
-        allDate.map((date) => (
-          <DateContainer key={date.id} date={date.date}>
-            {dailyGoals.map((goal) =>
-              date.date === goal.date ? (
-                <DailyItemCard key={goal.id} goal={goal} />
-              ) : null,
-            )}
-          </DateContainer>
-        ))
+        allDate
+          .sort((a, b) => a.id - b.id)
+          .map((date) => (
+            <DateContainer key={date.id} date={date.date}>
+              {dailyGoals.map((goal) =>
+                date.date === goal.date ? (
+                  <DailyItemCard key={goal.id} goal={goal} />
+                ) : null,
+              )}
+            </DateContainer>
+          ))
       ) : (
         <EmptyPage message="you don't have task" />
       )}

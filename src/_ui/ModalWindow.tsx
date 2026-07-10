@@ -16,7 +16,7 @@ function ModalWindow({ children, heading, close, isOpen }: ModalWindowProps) {
   };
 
   return (
-    <ModalHero.Backdrop variant="blur" isOpen={isOpen || false}>
+    <ModalHero.Backdrop variant="blur" isOpen={isOpen!}>
       <ModalHero.Container placement="center">
         <ModalHero.Dialog className="sm:max-w-90">
           <ModalHero.CloseTrigger

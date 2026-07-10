@@ -7,7 +7,10 @@ import { supabase } from "./supabase";
 import * as z from "zod";
 
 export const getDailyGoals = async () => {
-  const { data, error } = await supabase.from("daily").select("*");
+  const { data, error } = await supabase
+    .from("daily")
+    .select("*")
+    .in("status", ["active", "completed"]);
 
   if (error) throw new Error("message error: " + error);
 
@@ -68,4 +71,17 @@ export const getCategory = async (id: number) => {
   const category = CategorySchame.parse(data);
 
   return category;
+};
+
+export const getDailyGoalsArchive = async () => {
+  const { data, error } = await supabase
+    .from("daily")
+    .select("*")
+    .eq("status", "archive");
+
+  if (error) throw new Error("message error: " + error);
+
+  const dailyGoals = z.array(DailyGoalSchame).parse(data);
+
+  return dailyGoals;
 };

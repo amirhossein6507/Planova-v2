@@ -2,10 +2,15 @@
 
 import dynamic from "next/dynamic";
 import { useState } from "react";
-import { deleteDailyGoal } from "../_lib/actions";
+import { archivingDailyGoal, deleteDailyGoal } from "../_lib/actions";
 
 import { Button, Dropdown, Label } from "@heroui/react";
-import { HiEllipsisHorizontal, HiPencil, HiTrash } from "react-icons/hi2";
+import {
+  HiArchiveBoxArrowDown,
+  HiEllipsisHorizontal,
+  HiPencil,
+  HiTrash,
+} from "react-icons/hi2";
 import DailyFormEdit from "../_features/DailyGoals/DailyFormEdit";
 const Modal = dynamic(() => import("@/src/_ui/Modal"));
 const ModalWindow = dynamic(() => import("@/src/_ui/ModalWindow"));
@@ -43,6 +48,14 @@ function DropDownItems({
                 Edit
               </Label>
             </Dropdown.Item>
+
+            <Dropdown.Item onClick={() => archivingDailyGoal(dailyId)}>
+              <Label className="flex items-center gap-2">
+                <HiArchiveBoxArrowDown />
+                Archive
+              </Label>
+            </Dropdown.Item>
+
             <Dropdown.Item
               variant="danger"
               onClick={() => deleteDailyGoal(dailyId)}
