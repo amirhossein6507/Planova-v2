@@ -1,63 +1,64 @@
-"use client";
-
-import { Checkbox } from "@heroui/react";
+import { timeFormat } from "@/src/_utils/timeAdnDate";
 import DropDownItems from "../../_ui/DropDownItems";
+import DailyItemStatus from "./DailyItemStatus";
+import { getDailyGoal, getDailySteps } from "@/src/_lib/server";
+import { TCategory } from "@/src/_types/dailyGoalsTypes";
 
 type DailyItemCardHeaderProps = {
+  id: number;
   title: string;
   category: string;
-  startTime?: string;
-  endTime?: string;
+  startTime: string | null | undefined;
+  endTime: string | null | undefined;
   status: string;
+  categories: TCategory[];
 };
 
-function DailyItemCardHeader({
+async function DailyItemCardHeader({
+  id,
   title,
   category,
   startTime,
   endTime,
   status,
+  categories,
 }: DailyItemCardHeaderProps) {
+  const dailyGoal = await getDailyGoal(id);
+  const steps = await getDailySteps(id);
+
   const statusChecked = status === "active" ? false : true;
-
-  const startTimeFormated = startTime.split(":").slice(0, 2).join(":");
-  const endTimeFormated = endTime.split(":").slice(0, 2).join(":");
-
-  const handleChangeStatus = () => {
-    console.log("test");
-  };
+  const startTimeFormated = timeFormat(startTime);
+  const endTimeFormated = timeFormat(endTime);
 
   return (
     <div className="mb-1 flex items-center justify-between">
-      <div className="flex items-center gap-2">
-        <span>
-          <Checkbox
-            variant="secondary"
-            isSelected={statusChecked}
-            onClick={handleChangeStatus}
-            aria-label="change-status-card"
-          >
-            <Checkbox.Content>
-              <Checkbox.Control className="h-5 w-5 bg-zinc-500">
-                <Checkbox.Indicator />
-              </Checkbox.Control>
-            </Checkbox.Content>
-          </Checkbox>
-        </span>
+      <div className="flex w-[75%] items-center gap-2 bg-blue-300/0 md:w-[85%]">
+        <DailyItemStatus statusChecked={statusChecked} id={id} />
+
         <p className="bg-turquoise text-black-950 h-fit rounded-full px-2 text-sm">
           {category}
         </p>
-        <h3 className="text-turquoise text-lg">{title}</h3>
+
+        <h3 className="text-turquoise overflow-hidden bg-amber-300/0 text-lg text-ellipsis">
+          {title}
+        </h3>
       </div>
 
-      <div className="flex items-center gap-1">
-        <div className="flex items-center gap-0.5 text-xs text-zinc-300">
-          <span>{startTimeFormated}</span>
-          <span>-</span>
-          <span className="text-red-300">{endTimeFormated}</span>
+      <div className="flex items-center gap-1 bg-red-400/0">
+        <div className="flex items-center gap-1.5 text-xs text-zinc-300">
+          {startTimeFormated && <span>{startTimeFormated}</span>}
+          {endTimeFormated && (
+            <span className="text-red-300">{endTimeFormated}</span>
+          )}
         </div>
+
         <span>
-          <DropDownItems />
+          <DropDownItems
+            dailyId={id}
+            categories={categories}
+            dailyGoal={dailyGoal}
+            steps={steps}
+          />
         </span>
       </div>
     </div>

@@ -1,5 +1,10 @@
 import Link from "next/link";
-import { HiArchiveBox, HiFolder, HiInformationCircle } from "react-icons/hi2";
+import {
+  HiArchiveBox,
+  HiFolder,
+  HiInformationCircle,
+  HiMusicalNote,
+} from "react-icons/hi2";
 
 function Page() {
   return (
@@ -25,10 +30,20 @@ function Page() {
           <li>
             <Link
               href="/settings/archive"
-              className="flex h-15 w-15 flex-col items-center justify-center rounded-3xl bg-amber-500 text-white"
+              className="flex h-15 w-15 flex-col items-center justify-center rounded-3xl bg-amber-600 text-white"
             >
               <HiArchiveBox size={23} />
               <span className="text-[11px]">archive</span>
+            </Link>
+          </li>
+
+          <li>
+            <Link
+              href="/settings/archive"
+              className="flex h-15 w-15 flex-col items-center justify-center rounded-3xl bg-indigo-500 text-white"
+            >
+              <HiMusicalNote size={23} />
+              <span className="text-[11px]">music</span>
             </Link>
           </li>
 

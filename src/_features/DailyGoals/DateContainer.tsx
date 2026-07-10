@@ -1,5 +1,7 @@
 "use client";
 
+import { getTodayJalali } from "@/src/_utils/timeAdnDate";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { ReactNode, useState } from "react";
 import { HiChevronDown, HiChevronUp } from "react-icons/hi2";
 
@@ -9,10 +11,11 @@ type DateContainerProps = {
 };
 
 function DateContainer({ children, date }: DateContainerProps) {
-  const [open, setOpen] = useState(true);
+  const today = getTodayJalali();
+  const isToday = date === today;
+  const [open, setOpen] = useState(isToday);
 
   const handleOpen = () => {
-    // num == open ? setOpen(0) : setOpen(num);
     setOpen((cur) => !cur);
   };
 
