@@ -4,7 +4,8 @@
 
 @font-face {
   font-family: "iran-sans";
-  src: url("../../public/IRANSansXV.ttf");
+  src: url("/IRANSansXV.ttf") format("truetype");
+  font-display: swap;
 }
 
 :root {
@@ -21,8 +22,8 @@
   --color-black-900: var(--color-black-900);
   --color-black-950: var(--color-black-950);
   --color-white: var(--color-white-900);
-  --font-outfit: var(--font-outfit);
-  --font-iran-sans: .iran-sans;
+  --font-main: var(--font-outfit);
+  --font-iran-sans: var(--font-iran-sans);
 }
 
 * {

@@ -26,7 +26,7 @@ async function Page() {
 
       {dailyGoals.length !== 0 ? (
         allDate
-          .sort((a, b) => a.id - b.id)
+          .sort((a, b) => b.id - a.id)
           .map((date) => (
             <DateContainer key={date.id} date={date.date}>
               {dailyGoals.map((goal) =>

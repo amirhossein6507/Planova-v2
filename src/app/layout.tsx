@@ -21,7 +21,10 @@ export default function RootLayout({
   children: Readonly<ReactNode>;
 }) {
   return (
-    <html lang="en" className={`${outfit.className} dark h-full antialiased`}>
+    <html
+      lang="en"
+      className={`${outfit.className} ${outfit.variable} dark h-full antialiased`}
+    >
       <body className="bg-black-950 relative flex h-dvh grow flex-col items-center justify-center gap-5 px-2 py-2 md:flex-row md:px-5 md:py-10">
         <MainContainer>
           <Header />

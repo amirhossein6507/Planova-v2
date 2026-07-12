@@ -27,8 +27,8 @@ async function DailyItemCardHeader({
   const steps = await getDailySteps(id);
 
   const statusChecked = status === "active" ? false : true;
-  const startTimeFormated = timeFormat(startTime);
-  const endTimeFormated = timeFormat(endTime);
+  const startTimeFormated = timeFormat(startTime!);
+  const endTimeFormated = timeFormat(endTime!);
 
   return (
     <div className="mb-1 flex items-center justify-between">
