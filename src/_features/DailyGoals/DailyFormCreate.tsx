@@ -20,7 +20,7 @@ import {
 } from "@heroui/react";
 import { HiMiniExclamationTriangle, HiTrash } from "react-icons/hi2";
 import { FiCheckCircle } from "react-icons/fi";
-import { getTodayJalali } from "@/src/_utils/timeAdnDate";
+import { getTodayJalali } from "@/src/_utils/timeAndDate";
 import { TCategory, TDailyGoalStep } from "@/src/_types/dailyGoalsTypes";
 
 type DailyFormCreateProps = {
@@ -235,7 +235,7 @@ function CustomizeFormSection({
           <Switch.Control>
             <Switch.Thumb />
           </Switch.Control>
-          defining time
+          set time
         </Switch.Content>
       </Switch>
     </div>

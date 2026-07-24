@@ -3,14 +3,22 @@ import { getCategories } from "@/src/_lib/server";
 
 import { Button, SearchField } from "@heroui/react";
 import { HiSquaresPlus } from "react-icons/hi2";
+import LongTermFormCreate from "../_features/LongTermGoals/LontTermFormCreate";
 const Modal = dynamic(() => import("@/src/_ui/Modal"));
 const ModalWindow = dynamic(() => import("@/src/_ui/ModalWindow"));
 const DailyFormCreateOrEdit = dynamic(
   () => import("@/src/_features/DailyGoals/DailyFormCreate"),
 );
 
-async function HeaderDailyGoals() {
+type HeaderGoalsPageProps = {
+  typeGoals: "daily" | "long-term";
+};
+
+async function HeaderGoalsPage({ typeGoals }: HeaderGoalsPageProps) {
   const categories = await getCategories(1);
+
+  const isDaily = typeGoals === "daily";
+  const isLongTerm = typeGoals === "long-term";
 
   return (
     <div className="mb-2 flex items-center gap-2">
@@ -28,11 +36,13 @@ async function HeaderDailyGoals() {
         </Button>
 
         <ModalWindow heading="Create Task">
-          <DailyFormCreateOrEdit categories={categories} />
+          {isDaily && <DailyFormCreateOrEdit categories={categories} />}
+
+          {isLongTerm && <LongTermFormCreate categories={categories} />}
         </ModalWindow>
       </Modal>
     </div>
   );
 }
 
-export default HeaderDailyGoals;
+export default HeaderGoalsPage;

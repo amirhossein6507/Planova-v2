@@ -4,7 +4,7 @@ import { HiCalendarDateRange, HiClock } from "react-icons/hi2";
 import Logo from "./Logo";
 import Link from "next/link";
 import { format } from "date-fns-jalali";
-import { getTodayJalali } from "../_utils/timeAdnDate";
+import { getTodayJalali } from "../_utils/timeAndDate";
 
 function Header() {
   const today = getTodayJalali();

@@ -1,4 +1,10 @@
-import { Archivo_Black, Geist, Geist_Mono, Outfit } from "next/font/google";
+import {
+  Archivo_Black,
+  Geist,
+  Geist_Mono,
+  Outfit,
+  Vazirmatn,
+} from "next/font/google";
 import { ReactNode } from "react";
 import "@/src/app/globals.css";
 import Navbar from "../_ui/Navbar";
@@ -8,6 +14,11 @@ import Header from "../_ui/Header";
 const outfit = Outfit({
   variable: "--font-outfit",
   subsets: ["latin"],
+});
+
+const vasirmatn = Vazirmatn({
+  variable: "--font-vazirmatn",
+  subsets: ["arabic", "latin"],
 });
 
 export const metadata = {
@@ -23,7 +34,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${outfit.className} ${outfit.variable} dark h-full antialiased`}
+      className={`${outfit.className} ${outfit.variable} ${vasirmatn.variable} dark h-full antialiased`}
     >
       <body className="bg-black-950 relative flex h-dvh grow flex-col items-center justify-center gap-5 px-2 py-2 md:flex-row md:px-5 md:py-10">
         <MainContainer>

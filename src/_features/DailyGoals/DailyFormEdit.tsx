@@ -275,7 +275,7 @@ function CustomizeFormSection({
           <Switch.Control>
             <Switch.Thumb />
           </Switch.Control>
-          defining time
+          set time
         </Switch.Content>
       </Switch>
     </div>

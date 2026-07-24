@@ -24,6 +24,7 @@
   --color-white: var(--color-white-900);
   --font-main: var(--font-outfit);
   --font-iran-sans: var(--font-iran-sans);
+  --font-vazir: var(--font-vazirmatn);
 }
 
 * {

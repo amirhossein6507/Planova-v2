@@ -1,6 +1,6 @@
 "use client";
 
-import { getTodayJalali } from "@/src/_utils/timeAdnDate";
+import { getTodayJalali } from "@/src/_utils/timeAndDate";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { ReactNode, useState } from "react";
 import { HiChevronDown, HiChevronUp } from "react-icons/hi2";

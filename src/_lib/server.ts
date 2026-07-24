@@ -5,7 +5,10 @@ import {
 } from "@/src/_types/dailyGoalsTypes";
 import { supabase } from "./supabase";
 import * as z from "zod";
+import { notFound } from "next/navigation";
+import { LongTermGoalSchame } from "../_types/longTermGoalTypes";
 
+// DAILY
 export const getDailyGoals = async () => {
   const { data, error } = await supabase
     .from("daily")
@@ -84,4 +87,39 @@ export const getDailyGoalsArchive = async () => {
   const dailyGoals = z.array(DailyGoalSchame).parse(data);
 
   return dailyGoals;
+};
+
+// LONG TERM
+export const getLongTermGoals = async () => {
+  const { data, error } = await supabase.from("long-term").select("*");
+
+  if (error) throw new Error(error.message);
+
+  const longTermGoals = z.array(LongTermGoalSchame).parse(data);
+
+  return longTermGoals;
+};
+
+export const getLongTermGoal = async (id: number) => {
+  const { data, error } = await supabase
+    .from("long-term")
+    .select("*")
+    .eq("id", id)
+    .single();
+
+  // if (error) throw new Error(error.message);
+  if (error) notFound();
+
+  return data;
+};
+
+export const getLongTermSteps = async (id: number) => {
+  const { data, error } = await supabase
+    .from("long-term_steps")
+    .select("*")
+    .eq("longTermGoalId", id);
+
+  if (error) throw new Error(error.message);
+
+  return data;
 };

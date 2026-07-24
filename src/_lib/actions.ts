@@ -3,6 +3,8 @@
 import { revalidatePath } from "next/cache";
 import { supabase } from "./supabase";
 import { TDailyGoalStep } from "../_types/dailyGoalsTypes";
+import { redirect } from "next/navigation";
+import { TLongTermGoalStep } from "../_types/longTermGoalTypes";
 
 // DAILY GOALS ACTIONS
 export const createDailyGoal = async (formData: FormData) => {
@@ -133,4 +135,73 @@ export const deleteDailyGoal = async (id: number) => {
   if (errorSteps) throw new Error(errorSteps.message);
 
   revalidatePath("/home/daily");
+};
+
+// LONG-TERM ACTIONS
+export const createLongTermGoal = async (formData: FormData) => {
+  const newTask = {
+    title: formData.get("title"),
+    description: formData.get("description"),
+    status: "active",
+    priority: formData.get("priority") || null,
+    reminingDays: Number(formData.get("reminingDays")) || null,
+    startDate: formData.get("startDate"),
+    endDate: formData.get("endDate") || null,
+    categoryId: formData.get("category"),
+    userId: 1,
+  };
+
+  const newSteps = JSON.parse(formData.get("steps") as string);
+
+  const { data, error } = await supabase
+    .from("long-term")
+    .insert([newTask])
+    .select()
+    .single();
+
+  if (newSteps) {
+    const newStepsWithLongTermGoalId = newSteps.map(
+      (item: TLongTermGoalStep) => {
+        return { ...item, longTermGoalId: data.id };
+      },
+    );
+
+    const { error: errorSteps } = await supabase
+      .from("long-term_steps")
+      .insert(newStepsWithLongTermGoalId);
+
+    if (errorSteps) throw new Error(errorSteps.message);
+  }
+
+  if (error) throw new Error(error.message);
+
+  revalidatePath("/home/long-term");
+};
+
+export const changeStatusLongTermGoal = async (
+  id: number,
+  newStatus: string,
+) => {
+  const { data, error } = await supabase
+    .from("long-term")
+    .update({ status: newStatus })
+    .eq("id", id);
+
+  if (error) throw new Error(error.message);
+
+  revalidatePath("/home/long-term");
+};
+
+export const changeStepStatusLongTermGoal = async () => {};
+
+export const editLongTermGoal = async () => {};
+
+export const archivingLongTermGoal = async () => {};
+
+export const deleteLongTermGoal = async (id: number) => {
+  const { error } = await supabase.from("long-term").delete().eq("id", id);
+
+  if (error) throw new Error(error.message);
+
+  redirect("/home/long-term");
 };

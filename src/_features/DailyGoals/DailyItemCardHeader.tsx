@@ -1,4 +1,4 @@
-import { timeFormat } from "@/src/_utils/timeAdnDate";
+import { timeFormat } from "@/src/_utils/timeAndDate";
 import DropDownItems from "../../_ui/DropDownItems";
 import DailyItemStatus from "./DailyItemStatus";
 import { getDailyGoal, getDailySteps } from "@/src/_lib/server";
